@@ -1,0 +1,62 @@
+---
+title: "Number of Marriage Licenses Issued Over Time"
+author: 
+  - Michelle Ji
+date: 19 September 2024
+date-format: long
+abstract: This paper details the number of marriage issued over time in Toronto. Based on the analysis, there seems a slight incfrease in the average marriage licenses issued, however the positive correlation between marriage license and time is not extremely strong. 
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+marriage_data <- read_csv("analysis_data.csv")
+```
+
+
+# Introduction
+In this paper, we looked at the number of marriage licenses over time in Toronto, from City Of Toronto OpenData. We use @citeR and @rohan to complete our analysis. We used data from @rOpendatatoronto
+
+
+
+# Data {#sec-data}
+
+```
+We can look at our figure about the marriage licenses issued over time in Toronto (@fig-marriage). 
+
+```{r}
+#| label: fig-marriage
+#| fig-cap: Relationship between time and number of licenses issued
+#| echo: false
+#| warning: false
+#| message: false
+  
+ggplot(marriage_data, aes(x = date, y = marriage_licenses)) + # Line plot
+  geom_point(color = "red", size = 2) + # Add points for each date
+  labs(
+    title = "Marriage Licenses Issued Over Time",
+    x = "Date",
+    y = "Number of Marriage Licenses"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+
+
+
+\newpage
+
+
+# References
+
+
